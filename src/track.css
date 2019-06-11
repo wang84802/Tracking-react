@@ -1,0 +1,123 @@
+.logo {
+	height: 200px;
+	text-align: center;
+}
+.logo > img {
+	height: 100%;
+}
+.checkpoint > div {
+	display: inline-block;
+	padding: 3px;
+	margin: 5px;
+	vertical-align: middle;
+}
+.area_search {
+	max-width: 360px;
+	margin: auto;
+	text-align: center;
+}
+.area_search, .area_display {
+	text-align: center;
+	padding: 0px;
+}
+.textarea_search {
+	font-family: Consolas,"courier new", Arial, sans-serif;
+	margin: 30px 0;
+}
+textarea {
+	width: 100%;
+	border-radius: 4px;
+	padding: 8px;
+	resize: none;
+	box-sizing: border-box;
+}
+.title_search {
+	font-size: 1.6em;
+	font-weight: bold;
+	color: #0264AA;
+}
+.search_button {
+	box-sizing: border-box;
+	padding: 10px;
+	margin: auto;
+	border-radius: 10px;
+	font-family: inherit;
+	font-weight: bold;
+	font-size: 1.2em;
+	cursor: pointer;
+	color: white;
+	background-color: #0264AA;
+	transition: background-color 0.4s;
+}
+.search_button:hover {
+	background-color: #03B6DF;
+}
+.toggle_button {
+	height: 20px;
+	width: 20px;
+	padding: 5px;
+}
+.toggle_button, .tracking_info {
+	display: inline-block;
+	vertical-align: top;
+}
+.tracking_title, .tracking_details, .tracking_abstract {
+	box-sizing: border-box;
+	padding: 5px;
+	margin: 5px;
+}
+.tracking_outline {
+	border: 1px solid gray;
+	margin: 20px auto;
+}
+.checkpoint_date {
+	padding: 8px;
+	background-color: lightgray;
+}
+.checkpoint_tag {
+	box-sizing: border-box;
+	font-size: 0.8em;
+	width: 75px;
+	line-height: 15px;
+	text-align: center;
+}
+.checkpoint_time {
+	text-align: center;
+}
+.checkpoint_location {
+	color: gray;
+}
+.tracking_info_label, .tracking_info_number {
+	display: inline-block;
+	padding: 3px;
+}
+.tracking_info_label {
+	width: 150px;
+}
+.tracking_outline, .button_back_to_index {
+	max-width: 800px;
+}
+.button_back_to_index {
+	margin: auto;
+}
+.button_back_to_index > .icon {
+	position: relative;
+	top: 3px;
+	margin-right: 7px;
+}
+.toggle_button, .button_back_to_index {
+	cursor: pointer;
+	color: #0264AA;
+	transition: color 0.4s;
+}
+.toggle_button:hover, .button_back_to_index:hover {
+	color: #03B6DF;
+}
+
+.fade-enter-active, .fade-leave-active {
+	transition: all .3s;
+}
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+		transform: translateY(30px);
+}

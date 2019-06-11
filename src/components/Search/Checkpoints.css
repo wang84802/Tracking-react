@@ -1,0 +1,29 @@
+.checkpoints_date{
+    background-color: lightgray;
+    box-sizing: border-box;
+    height: 35px;
+    padding: 8px;
+}
+checkpoints_simplify_date{
+    background-color: lightgray;
+    box-sizing: border-box;
+    height: 35px;
+    padding: 8px;
+}
+
+.checkpoints_detail{
+    margin: 5px;
+    padding: 5px;
+}
+
+.message {
+    padding: 8px;
+}
+
+.time {
+    display:inline-block;
+}
+
+Message {
+    margin: 10px;
+}

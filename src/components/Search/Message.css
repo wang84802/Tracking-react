@@ -1,0 +1,47 @@
+.message-table {
+    font-family: Consolas;
+    font-weight:bold;
+    font-size: 12px;
+    align: center;
+    vertical-align: middle;
+    width: 75px;
+}
+.message_location_table{
+    font-family: Consolas;
+    font-size: 15px;
+    font-weight: 500;
+    text-align:left;
+    vertical-align: middle;
+    text-align: justify;
+}
+
+.table {
+    text-align:center;
+    display: inline-block;
+    padding: 7px;
+    vertical-align: middle;
+}
+.message  {
+}
+
+.location  {
+    color: gray;
+}
+
+.time {
+    vertical-align: middle;
+}
+.OutForDelivery {
+    color: #e77f11;
+}
+
+.Delivered {
+    color: #27ae60;
+}
+.InTransit {
+    color: #3498db;
+}
+
+.InfoReceived {
+    color: #214977;
+}

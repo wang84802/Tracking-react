@@ -1,0 +1,62 @@
+.result {
+    padding: 30px;
+    font-family: Consolas,"courier new", Arial, sans-serif;
+}
+.button_back_to_index {
+    text-align: left;
+}
+.tracking_title {
+    display: block;
+}
+
+.tracking_outline {
+    border: 1px solid gray;
+    max-width: 800px;
+    box-sizing: border-box;
+    font-size: 15px;
+    text-align: left;
+}
+
+.gif {
+    max-width: 100px;
+    margin: auto;
+    text-align: center;
+}
+
+.tracking_info_label {
+    width: 150px;
+}
+.icon {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 50px;
+}
+
+i {
+    border: solid #0264AA;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+
+i:hover {
+    border: solid #03B6DF;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.right {
+    transform: rotate(315deg);
+    -webkit-transform: rotate(315deg);
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: all .3s;
+}

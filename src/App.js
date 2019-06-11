@@ -17,6 +17,7 @@ const todos = [
         isCompleted: false
     }
 ];
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -31,7 +32,7 @@ class App extends Component {
 
     }
     render () {
-        return (   //傳todos,saveTask到TodoList
+        return (
             <div>
                 <header className="App-header">
                     <h1>React Todo List</h1>
@@ -40,11 +41,20 @@ class App extends Component {
                         todos={this.state.todos}
                         saveTask={this._saveTask}
                         deleteTask={this._deleteTask}
-                        completeTask={this._completeTask} 
+                        completeTask={this._completeTask}
                     />
                 </header>
             </div>
         );
+    }
+    _loginTask(val){
+        let newTodos = [...this.state.todos];
+        newTodos.push(
+            {
+                task: val,
+                isCompleted: false
+            });
+        this.setState({ todos: newTodos });
     }
 
     _saveTask(idx, val) {

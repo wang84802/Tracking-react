@@ -27,7 +27,6 @@ class TodoList extends Component {
 
     _renderItems() {
         const { todos, saveTask, deleteTask, completeTask } = this.props; //把props的saveTask 再傳給TodoItem
-
         let list = [];
         todos.forEach((todo, idx) => {
             list.push(

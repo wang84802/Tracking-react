@@ -9,7 +9,7 @@ class TodoAdd extends Component {
     render() {
         return (
             <div>
-                <input type="text" ref="addInput" />
+                <textarea type="text" ref="addInput" />
                 <button onClick={this._onAddClick}>Create</button>
             </div>
         );

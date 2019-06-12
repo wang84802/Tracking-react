@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import TodoList from './components/TodoList';
-import LoginAdd from  './components/LoginAdd';
-import LoginList from  './components/LoginList';
-import Input from './components/Input';
-import { Home } from "./components/Home/Home";
-import { Search } from "./components/Search/Search";
-import { About } from "./components/About/About";
-import './track.css';
+import Input  from "./components/Input/Input";
+import Search from "./components/Search/Search";
+import './Track.css';
 
 const input = [];
 
@@ -23,16 +17,14 @@ class Track extends Component {
     }
 
     render() {
-        const { data } = this.state;
         let component = null;
-        if (this.state.auth == false) {
-            this.state.input = [];
+        if (this.state.auth === false) {
             component =
                 <div>
                     <div class="area_search">
                         <div class="title_search">Search Trackings</div>
                         <p></p>
-                            <Input addInput={this._addInput}/>
+                        <Input addInput={this._addInput} input={this.state.input}/>
                     </div>
                 </div>;
         } else {
@@ -56,16 +48,21 @@ class Track extends Component {
     }
 
     _addInput(val){
-        let newInput = [...this.state.input];
+        let newInput = [];
         newInput.push(
             {
                 input: val,
             });
-        this.setState({ input: newInput,auth:true });
+        this.setState({ input: newInput,auth: true });
     }
 
-    _authfalse(){
-        this.setState({auth: false});
+    _authfalse(val){
+        let newInput = [];
+        newInput.push(
+            {
+                input: val,
+            });
+        this.setState({input: newInput,auth: false});
     }
 }
 

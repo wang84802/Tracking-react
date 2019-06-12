@@ -1,9 +1,7 @@
 import React from "react"
 import './Search.css';
-
-import Input from '../Input';
 import axios from 'axios';
-import Checkpoints from './Checkpoints';
+import Checkpoints from '../Checkpoint/Checkpoints';
 import { Get, AxiosProvider } from 'react-axios';
 
 const axiosInstance = axios.create({
@@ -12,7 +10,6 @@ const axiosInstance = axios.create({
     headers: {'Api-Token': 'u2wW5v2dbrH98dApzZyDFS5xQuQvgvTP'}
 });
 const test_url = '/internal/trackings/';
-//const track = null; //checkpoint*3 : LABEL-API-TEST201905210033797ND checkpoint*1 : HAO201903140000147AM
 
 class Search extends React.Component{
     constructor(props) {
@@ -36,14 +33,31 @@ class Search extends React.Component{
                 <Get url={url}>
                 {(error, response, isLoading) => {
                 if(error) {
-                    return (<div>Something bad happened: {error.message}</div>)
+                    return (
+                        <div>
+                            <div class="button_back_to_index_error">
+                                <icon class="arrow-left" onClick={this._BackClick}>&larr; Back to the index</icon>
+                            </div>
+                            <div class="error_message">Something bad happened: {error.message}</div>
+                        </div>
+                    );
                 }
                 else if(isLoading) {
-                    return (<img class="gif" src="processing.gif"></img>)
+                    return (<img class="gif" alt="" src="processing.gif"></img>)
                 }
                 else if(response !== null) {
-                    if(response.data.status == 400)
-                        this.props.authfalse();
+                    if(response.data.status === '400'){
+                        return (
+                            <div>
+                                <div class="button_back_to_index_error">
+                                    <icon class="arrow-left" onClick={this._BackClick}>&larr; Back to the index</icon>
+                                </div>
+                                <div class="error_message">
+                                    {response.data.error[0].messages}
+                                </div>
+                            </div>
+                        );
+                    }
                     else{
                         return (
                             <div>
@@ -76,8 +90,10 @@ class Search extends React.Component{
     }
     
     _BackClick() {
-        this.props.authfalse(); //將value傳入父元件的addInput
+        const Input = this.props.input[0].input;
+        this.props.authfalse(Input); //將value傳入父元件的addInput
     }
+
     SimplifyClick(){
         this.setState({
             checkpoint_simplify:!this.state.checkpoint_simplify
@@ -86,4 +102,4 @@ class Search extends React.Component{
 
 
 }
-export {Search}
+export default Search;

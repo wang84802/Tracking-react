@@ -1,25 +1,18 @@
 import React, { Component } from 'react';
-import Message from './Message';
+import Message from '../Message/Message';
 import './Checkpoints.css';
 
 
 class Checkpoints extends Component {
-    constructor(props) {
-        super(props);
-        
-    }
 
     render() {
         let simplify = this.props.checkpoint_simplify;
         let data = this.props.checkpoints;
         let array = [];
         if(data.length === 0)
-        {
             return <div></div>;
-        }
-        else if(simplify == false)
-        {
-            let array = [];
+        else if(simplify === false) {
+
             let size = data.length;
             let latest_date = data[size-1].date;
             array.push(<div class="checkpoints_date">{latest_date}</div>);
@@ -28,50 +21,59 @@ class Checkpoints extends Component {
                     array.push(<div class="checkpoints_date">{data[i].date}</div>);
                     latest_date = data[i].date;
                 }
-                array.push(<Message a={data[i]}/>)
+                array.push(<Message checkpoints={data[i]}/>)
             }
             return <div class="checkpoints_detail">{array}</div>;
         }
         else {
-            let array = [];
-            let size = data.length;
-            let latest_date = data[size-1].date;
 
-            if(data[size-1].tag == 'OutForDelivery')
+            let size = data.length;
+
+            if(data[size-1].tag === 'OutForDelivery')
                 array.push(
-                    <div class='table OutForDelivery'>
-                        <table class='message-table'>
-                            Out For <br></br>
-                            Delivery
-                        </table>
+                    <div class="OutForDelivery">
+                        Out For <br></br>
+                        Delivery
                     </div>
                 );
-            else if(data[size-1].tag == 'Delivered')
+            else if(data[size-1].tag === 'Delivered')
                 array.push(
-                    <div class='table Delivered'>
-                    <table class='message-table'>
+                    <div class="Delivered">
                         Delivered
-                    </table>
-                </div>
+                    </div>
                 );
-            else if(data[size-1].tag == 'InTransit')
+            else if(data[size-1].tag === 'InTransit')
                 array.push(
-                    <div class='table InTransit'>
-                        <table class='message-table'>
+                    <div class="InTransit">
                             In <br></br>
                             Transit
-                        </table>
                     </div>
                 );
-            else if(data[size-1].tag == 'InfoReceived')
+            else if(data[size-1].tag === 'InfoReceived')
                 array.push(
-                    <div class='table InfoReceived'>
-                        <table class='message-table'>
-                            Info <br></br>
-                            Received
-                        </table>
+                    <div class="InfoReceived">
+                        Info <br></br>
+                        Received
                     </div>
                 );
+            else if(data[size-1].tag === 'Exception')
+                    array.push(
+                    <div class="Exception">
+                        Exception
+                    </div>
+            );
+            else if(data[size-1].tag === 'AttemptFail')
+                    array.push(
+                    <div class="AttemptFail">
+                        AttemptFail
+                    </div>
+            );
+            else if(data[size-1].tag === 'Pending')
+                    array.push(
+                    <div class="Pending">
+                        Pending
+                    </div>
+            );
 
             return (
                 <div class="checkpoint">
@@ -79,21 +81,19 @@ class Checkpoints extends Component {
                         <div class="checkpoint_date">{data[size-1].date}</div>
                         <div class="checkpoint_time">{data[size-1].time}</div>
                     </div>
-                        {array}
+                    <div class='table'>
+                        <table class='message_table'>
+                            {array}
+                        </table>
+                    </div>
                     <div>
                         <div class="checkpoint_message">{data[size-1].message}</div>
                         <div class="checkpoint_location">{data[size-1].location}</div>
                     </div>
                 </div>
-                // <div class="checkpoints_detail">
-                //     <div class="checkpoints_simplify_date">{latest_date}</div>
-                //     <div>{data[size-1].time}</div>
-                // </div>
             );
         }
-
     }
-
 }
 
 export default Checkpoints;

@@ -5,6 +5,22 @@
 .button_back_to_index {
     text-align: left;
 }
+.button_back_to_index_error {
+    text-align: center;
+}
+.button_back_to_index_error {
+    cursor: pointer;
+    color: #0264AA;
+    transition: color 0.4s;
+}
+.button_back_to_index_error:hover {
+    color: #03B6DF;
+}
+.error_message {
+    margin: 30px;
+}
+
+
 .tracking_title {
     display: block;
 }

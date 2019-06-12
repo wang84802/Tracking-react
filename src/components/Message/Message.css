@@ -1,4 +1,4 @@
-.message-table {
+.message_table {
     font-family: Consolas;
     font-weight:bold;
     font-size: 12px;
@@ -21,8 +21,6 @@
     padding: 7px;
     vertical-align: middle;
 }
-.message  {
-}
 
 .location  {
     color: gray;
@@ -34,7 +32,6 @@
 .OutForDelivery {
     color: #e77f11;
 }
-
 .Delivered {
     color: #27ae60;
 }
@@ -44,4 +41,13 @@
 
 .InfoReceived {
     color: #214977;
+}
+.Exception {
+    color: #c0392b;
+}
+.AttemptFail {
+    color: #9B59B6;
+}
+.Pending {
+    color: #BDC3C7;
 }

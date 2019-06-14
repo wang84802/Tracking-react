@@ -35,8 +35,24 @@ class Track extends Component {
                     </div>
                 </div>
         }
+        window.addEventListener('message', e => {
+
+            if (e.origin !== 'http://erp.contin-testing-site.com') return
+            else {
+                let newInput = [];
+                newInput.push(
+                    {
+                        input: e.data.tracking_number,
+                    });
+                this.setState({input: newInput,auth: true});
+            }
+        }, false)
+
+
         return (
+
             <div id="app">
+
                 <div class="logo">
                     <img src="Continental_logo.jpg" alt="Continental"></img>
                 </div>

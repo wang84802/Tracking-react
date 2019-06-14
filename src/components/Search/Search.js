@@ -3,6 +3,8 @@ import './Search.css';
 import axios from 'axios';
 import Checkpoints from '../Checkpoint/Checkpoints';
 import { Get, AxiosProvider } from 'react-axios';
+import { CSSTransitionGroup } from 'react-transition-group';
+
 
 const axiosInstance = axios.create({
     baseURL: 'http://track-api.contin-web.com',
@@ -38,7 +40,14 @@ class Search extends React.Component{
                             <div class="button_back_to_index_error">
                                 <icon class="arrow-left" onClick={this._BackClick}>&larr; Back to the index</icon>
                             </div>
-                            <div class="error_message">Something bad happened: {error.message}</div>
+                            <CSSTransitionGroup
+                            transitionName="example"
+                            transitionAppear={true}
+                            transitionAppearTimeout={500}
+                            transitionEnter={true}
+                            transitionLeave={true}>
+                                <div class="error_message">Something bad happened: {error.message}</div>
+                            </CSSTransitionGroup>
                         </div>
                     );
                 }
@@ -85,7 +94,7 @@ class Search extends React.Component{
                 }}
                 </Get>
             </AxiosProvider>
-            </div>
+        </div>
         )
     }
     

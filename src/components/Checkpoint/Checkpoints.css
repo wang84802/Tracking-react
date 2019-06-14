@@ -27,3 +27,23 @@ checkpoints_simplify_date{
 Message {
     margin: 10px;
 }
+
+.example-appear {
+    opacity: 0.01;
+    margin-top: 50px;
+}
+
+.example-appear.example-appear-active {
+    opacity: 1;
+    margin-top: 0px;
+    transition: opacity .5s ease-in;
+    transition: margin-top .5s ease-in;
+}
+.example-exit {
+    opacity: 1;
+}
+.example-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+}
+

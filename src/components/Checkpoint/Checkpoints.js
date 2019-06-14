@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { useState,Component } from 'react';
 import Message from '../Message/Message';
 import './Checkpoints.css';
-
+import { CSSTransition,CSSTransitionGroup } from 'react-transition-group';
 
 class Checkpoints extends Component {
 
@@ -23,7 +23,18 @@ class Checkpoints extends Component {
                 }
                 array.push(<Message checkpoints={data[i]}/>)
             }
-            return <div class="checkpoints_detail">{array}</div>;
+
+            return (
+                <div>
+                    <CSSTransitionGroup
+                        transitionName="example"
+                        transitionAppear={true}
+                        transitionAppearTimeout={500}
+                        transitionLeave={true}>
+                        <div class="checkpoints_detail">{array}</div>
+                    </CSSTransitionGroup>
+                </div>
+            )
         }
         else {
 
@@ -76,21 +87,27 @@ class Checkpoints extends Component {
             );
 
             return (
-                <div class="checkpoint">
-                    <div>
-                        <div class="checkpoint_date">{data[size-1].date}</div>
-                        <div class="checkpoint_time">{data[size-1].time}</div>
+                <CSSTransitionGroup
+                    transitionName="example"
+                    transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    transitionLeave={true}>
+                    <div class="checkpoint">
+                        <div>
+                            <div class="checkpoint_date">{data[size-1].date}</div>
+                            <div class="checkpoint_time">{data[size-1].time}</div>
+                        </div>
+                        <div class='table'>
+                            <table class='message_table'>
+                                {array}
+                            </table>
+                        </div>
+                        <div>
+                            <div class="checkpoint_message">{data[size-1].message}</div>
+                            <div class="checkpoint_location">{data[size-1].location}</div>
+                        </div>
                     </div>
-                    <div class='table'>
-                        <table class='message_table'>
-                            {array}
-                        </table>
-                    </div>
-                    <div>
-                        <div class="checkpoint_message">{data[size-1].message}</div>
-                        <div class="checkpoint_location">{data[size-1].location}</div>
-                    </div>
-                </div>
+                </CSSTransitionGroup>
             );
         }
     }

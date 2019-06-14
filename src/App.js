@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TodoAdd from './components/TodoAdd';
 import TodoList from './components/TodoList';
 import './App.css';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 const todos = [
     {
@@ -21,70 +22,23 @@ const todos = [
 class App extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            todos
-        };
-        this._saveTask = this._saveTask.bind(this);
-        this._addTask = this._addTask.bind(this);
-        this._deleteTask = this._deleteTask.bind(this);
-        this._completeTask = this._completeTask.bind(this);
-
+        this.state = {items: 1};
+        this.handleAdd = this.handleAdd.bind(this);
     }
-    render () {
+
+
+
+    render() {
         return (
-            <div>
-                <header className="App-header">
-                    <h1>React Todo List</h1>
-                    <TodoAdd addTask={this._addTask} />
-                    <TodoList
-                        todos={this.state.todos}
-                        saveTask={this._saveTask}
-                        deleteTask={this._deleteTask}
-                        completeTask={this._completeTask}
-                    />
-                </header>
-            </div>
-        );
-    }
-    _loginTask(val){
-        let newTodos = [...this.state.todos];
-        newTodos.push(
-            {
-                task: val,
-                isCompleted: false
-            });
-        this.setState({ todos: newTodos });
-    }
-
-    _saveTask(idx, val) {
-        // copy array
-        let newTodos = [...this.state.todos];
-        // copy object
-        newTodos[idx] = Object.assign({}, newTodos[idx], { task: val });
-        this.setState({ todos: newTodos });
-    }
-
-    _addTask(val){
-        let newTodos = [...this.state.todos];
-        newTodos.push(
-            {
-                task: val,
-                isCompleted: false
-            });
-        this.setState({ todos: newTodos });
-    }
-
-    _deleteTask(idx){
-        let newTodos = [...this.state.todos];
-        newTodos.splice(idx, 1);
-        this.setState({ todos: newTodos });
-    }
-
-    _completeTask(idx) {
-        let newTodos = [...this.state.todos];
-        newTodos[idx] = Object.assign({}, newTodos[idx], { isCompleted: !newTodos[idx].isCompleted });
-        this.setState({ todos: newTodos });
+            <CSSTransitionGroup
+        transitionName="example"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnter={false}
+        transitionLeave={false}>
+            <h1>Fading at Initial Mount</h1>
+        </CSSTransitionGroup>
+    );
     }
 }
 

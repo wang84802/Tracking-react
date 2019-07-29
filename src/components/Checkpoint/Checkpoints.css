@@ -36,14 +36,6 @@ Message {
 .example-appear.example-appear-active {
     opacity: 1;
     margin-top: 0px;
-    transition: opacity .5s ease-in;
-    transition: margin-top .5s ease-in;
-}
-.example-exit {
-    opacity: 1;
-}
-.example-exit-active {
-    opacity: 0;
-    transition: opacity 500ms ease-in;
+    transition: opacity .5s ease-in , margin-top .5s ease-in-out;
 }
 

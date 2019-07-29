@@ -48,7 +48,6 @@ class Track extends Component {
             }
         }, false)
 
-
         return (
 
             <div id="app">

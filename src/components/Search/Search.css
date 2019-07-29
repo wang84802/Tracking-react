@@ -80,12 +80,9 @@ i:hover {
 
 .example-appear {
     opacity: 0.01;
-    margin-top: 50px;
 }
 
 .example-appear.example-appear-active {
     opacity: 1;
-    margin-top: 0px;
-    transition: margin-top .5s ease-in;
     transition: opacity .5s ease-in;
 }

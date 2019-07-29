@@ -18,6 +18,7 @@ class Input extends Component {
     }
 
     render() {
+        console.log(this.props);
         let Inital_input = null;
         if(this.props.input.length !== 0)
             Inital_input = this.props.input[0].input;

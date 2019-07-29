@@ -43,10 +43,7 @@ class Search extends React.Component{
                                 <div class="button_back_to_index_error">
                             <icon class="arrow-left" onClick={this._BackClick}>&larr; Back to the index</icon>
                         </div>
-                        <CSSTransitionGroup transitionName="example" transitionAppear={true}
-                        transitionAppearTimeout={500} transitionEnter={true} transitionLeave={true}>
                             <div class="error_message">Something bad happened: {error.message}</div>
-                        </CSSTransitionGroup>
                         </div>
                     );
 
